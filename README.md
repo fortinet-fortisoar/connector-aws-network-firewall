@@ -24,4 +24,4 @@ The connector supports the following actions:
 * Tag Resource
 
 
-# API Documentation Link: https://docs.aws.amazon.com/network-firewall/latest/APIReference/Welcome.html
+API Documentation Link: https://docs.aws.amazon.com/network-firewall/latest/APIReference/Welcome.html
