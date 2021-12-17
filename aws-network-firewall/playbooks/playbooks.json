@@ -1,0 +1,2066 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - AWS Network Firewall - 1.0.0",
+      "description": "AWS Network Firewall is a managed service that makes it easy to deploy essential network protections for all of your Amazon Virtual Private Clouds (VPCs). You can filter network traffic at the perimeter of your VPC using AWS Network Firewall. Network Firewall is a stateful, managed, network firewall and intrusion detection and prevention service.",
+      "visible": true,
+      "image": null,
+      "uuid": "0df01677-5ff9-4755-ba2c-0a32c3800704",
+      "id": 1170,
+      "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+      "createDate": 1639718020,
+      "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+      "modifyDate": 1639718020,
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List Firewall Policies",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the metadata for the firewall policies that you have defined.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639718690,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/9d9f9ba1-e626-44f8-a215-a2c827587423",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List Firewall Policies",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "NextToken": "",
+                  "MaxResults": "",
+                  "assume_role": false
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "get_list_firewall_policies",
+                "operationTitle": "Get List Firewall Policies",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "152",
+              "left": "442",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "9875c51e-90d1-485d-8b1d-f2e5f79688c4",
+              "id": 48856
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "4c79b94d-b90c-4332-8679-1dbc98b39942",
+                "title": "AWS Network Firewall: Get List Firewall Policies",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "9d9f9ba1-e626-44f8-a215-a2c827587423",
+              "id": 48855
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get List Firewall Policies",
+              "targetStep": "/api/3/workflow_steps/9875c51e-90d1-485d-8b1d-f2e5f79688c4",
+              "sourceStep": "/api/3/workflow_steps/9d9f9ba1-e626-44f8-a215-a2c827587423",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "bcd41473-278c-4e03-bb6e-942de360445f"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "03824502-430b-437b-9830-501b00da9ee7",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15455,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639718605,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639718689,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List Firewalls",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the metadata for the firewalls that you have defined.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639719431,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3514e2ec-45f8-4b7d-8222-b9f0e9458379",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "a8fe87dd-2acf-4a31-935b-c4663872d64b",
+                "title": "AWS Network Firewall: Get List Firewalls",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "3514e2ec-45f8-4b7d-8222-b9f0e9458379",
+              "id": 48857
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List Firewalls",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "VpcIds": "",
+                  "NextToken": "",
+                  "MaxResults": "",
+                  "assume_role": false
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "get_list_firewalls",
+                "operationTitle": "get_list_firewalls",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "152",
+              "left": "453",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "de2d13f3-08ad-48ba-aa05-639cd932044a",
+              "id": 48858
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get List Firewalls",
+              "targetStep": "/api/3/workflow_steps/de2d13f3-08ad-48ba-aa05-639cd932044a",
+              "sourceStep": "/api/3/workflow_steps/3514e2ec-45f8-4b7d-8222-b9f0e9458379",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d5c0ccd6-4926-4a08-aa56-7238880c6e74"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "096e6fe3-52f2-4f24-b278-b42701e53953",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15456,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639719358,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639719430,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Associate Subnets",
+          "aliasName": null,
+          "tag": null,
+          "description": "Associates the specified subnets in the Amazon VPC to the firewall.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639718564,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/878262c5-90c5-41f3-a691-b1e5a9d81142",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "0dd85ba1-6285-4052-a22f-a34254b0313a",
+                "title": "AWS Network Firewall: Get Associate Subnets",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "878262c5-90c5-41f3-a691-b1e5a9d81142",
+              "id": 48853
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Associate Subnets",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "FirewallArn": "arn:aws:iam::740371071977:role/aws-firewall",
+                  "UpdateToken": "",
+                  "assume_role": false,
+                  "FirewallName": "",
+                  "SubnetMappings": "1.1.1.1"
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "get_associate_subnets",
+                "operationTitle": "Get Associate Subnets",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "125",
+              "left": "412",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "d858a44e-c655-42e7-9ff1-8a06ed9bba17",
+              "id": 48854
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Associate Subnets",
+              "targetStep": "/api/3/workflow_steps/d858a44e-c655-42e7-9ff1-8a06ed9bba17",
+              "sourceStep": "/api/3/workflow_steps/878262c5-90c5-41f3-a691-b1e5a9d81142",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "4c094388-8cce-4896-8635-ba9d5febf8bb"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "0bbd6956-111b-44b2-890a-ffd4a7305c46",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15454,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639718469,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639718563,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Firewall Policy",
+          "aliasName": null,
+          "tag": null,
+          "description": "Deletes the specified firewall policy.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639728366,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/c9e8cc0b-764a-4a1d-b2bf-3bafa70a1be6",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "891cfd0d-4d9f-4b4d-bf88-185f7601c4a9",
+                "title": "AWS Network Firewall: Delete Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "c9e8cc0b-764a-4a1d-b2bf-3bafa70a1be6",
+              "id": 48909
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "assume_role": false,
+                  "FirewallPolicyArn": "",
+                  "FirewallPolicyName": "Block IP"
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "delete_firewall_policy",
+                "operationTitle": "Delete Firewall Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "134",
+              "left": "446",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "dec2c67f-c8ca-487b-ad2b-e6f354686ea2",
+              "id": 48910
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Delete Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/dec2c67f-c8ca-487b-ad2b-e6f354686ea2",
+              "sourceStep": "/api/3/workflow_steps/c9e8cc0b-764a-4a1d-b2bf-3bafa70a1be6",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "692aa180-b680-4a9a-b0a5-298243e103ba"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "2758ab20-d392-477a-b038-ac963d71dbfb",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15482,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639728203,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639728366,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Describe Firewall Policy",
+          "aliasName": null,
+          "tag": null,
+          "description": "Returns the data objects for the specified firewall policy.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639726352,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/44e8cd8e-28e5-4c6e-b856-da9c030055f0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Describe Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "assume_role": false,
+                  "FirewallPolicyArn": "",
+                  "FirewallPolicyName": ""
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "describe_firewall_policy",
+                "operationTitle": "Describe Firewall Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "123",
+              "left": "410",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "1cb37b66-ab8d-4ef1-9d60-b9981232c360",
+              "id": 48900
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "54401446-6ee1-4101-8dca-b9412f099fd8",
+                "title": "AWS Network Firewall: Describe Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "44e8cd8e-28e5-4c6e-b856-da9c030055f0",
+              "id": 48899
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Describe Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/1cb37b66-ab8d-4ef1-9d60-b9981232c360",
+              "sourceStep": "/api/3/workflow_steps/44e8cd8e-28e5-4c6e-b856-da9c030055f0",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "9b8d3910-a7f0-400e-9a00-2473286186e9"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "38f6bf30-15d1-4335-8668-6e2fa3354608",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15477,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639726253,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639726352,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Firewall Policy",
+          "aliasName": null,
+          "tag": null,
+          "description": "Creates the firewall policy for the firewall according to the specifications.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639724321,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d4d1bdf6-5f2c-40bf-9157-c5c04a3cf45a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "Tags": "[\n  {\n    \"Key\": \"\",\n    \"Value\": \"\"\n  }\n]",
+                  "Description": "",
+                  "assume_role": false,
+                  "FirewallPolicyName": "Block IP Policy",
+                  "firewall_policy_json": {
+                    "StatefulEngineOptions": {
+                      "RuleOrder": ""
+                    },
+                    "StatefulDefaultActions": [],
+                    "StatelessCustomActions": [
+                      {
+                        "ActionName": "",
+                        "ActionDefinition": {
+                          "PublishMetricAction": {
+                            "Dimensions": [
+                              {
+                                "Value": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "StatelessDefaultActions": [],
+                    "StatefulRuleGroupReferences": [
+                      {
+                        "Override": {
+                          "Action": ""
+                        },
+                        "Priority": "",
+                        "ResourceArn": ""
+                      }
+                    ],
+                    "StatelessRuleGroupReferences": [
+                      {
+                        "Priority": "",
+                        "ResourceArn": ""
+                      }
+                    ],
+                    "StatelessFragmentDefaultActions": []
+                  }
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "create_firewall_policy",
+                "operationTitle": "Create Firewall Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "152",
+              "left": "404",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "956802fd-0f1d-4544-ab6b-e76c78f6ab14",
+              "id": 48894
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "cbc262fc-79d5-481a-b58d-e03c7428bf1c",
+                "title": "AWS Network Firewall: Create Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "d4d1bdf6-5f2c-40bf-9157-c5c04a3cf45a",
+              "id": 48893
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/956802fd-0f1d-4544-ab6b-e76c78f6ab14",
+              "sourceStep": "/api/3/workflow_steps/d4d1bdf6-5f2c-40bf-9157-c5c04a3cf45a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "06b3fa0a-4830-4dcd-a718-5ef375d42004"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "42f60ef6-33b7-4946-b241-d843abebe80c",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15474,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639724206,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639724321,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Describe Resource Policy",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves a resource policy that you created.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639727499,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/0e0b92e3-313d-422a-b2dd-127057eee071",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e3b2d673-d004-416a-b9a9-737c225ed43f",
+                "title": "AWS Network Firewall: Describe Resource Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "0e0b92e3-313d-422a-b2dd-127057eee071",
+              "id": 48903
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Describe Resource Policy",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "ResourceArn": "arn:aws:iam::740371071977:resourceARN",
+                  "assume_role": false
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "describe_resource_policy",
+                "operationTitle": "Describe Resource Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "156",
+              "left": "342",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "4255b911-d24b-4c74-b7be-0619a74b9ab9",
+              "id": 48904
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Describe Resource Policy",
+              "targetStep": "/api/3/workflow_steps/4255b911-d24b-4c74-b7be-0619a74b9ab9",
+              "sourceStep": "/api/3/workflow_steps/0e0b92e3-313d-422a-b2dd-127057eee071",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "99944a84-2006-481d-b18e-34a0afb46fe5"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "47227d9b-f6aa-49c4-bfb9-8543fb0bbc38",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15479,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639727392,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639727498,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Rule Group",
+          "aliasName": null,
+          "tag": null,
+          "description": "Creates the specified stateless or stateful rule group, which includes the rules for network traffic inspection, a capacity setting, and tags.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639726068,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/97792d3e-805c-49b9-863f-a3c8e8e3e785",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Rule Group",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "tags": "",
+                  "type": "test",
+                  "rules": "Rules",
+                  "capacity": 1,
+                  "assume_role": false,
+                  "description": "",
+                  "setting_type": "Rules Setting",
+                  "rule_group_name": "Block Policy"
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "create_rule_group",
+                "operationTitle": "Create Rule Group",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "154",
+              "left": "364",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "5bf4aa8f-a2ca-4715-8dca-affd68942edc",
+              "id": 48896
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "4bf65e6b-2ff0-4cf6-a964-2b893d45c4e0",
+                "title": "AWS Network Firewall: Create Rule Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "97792d3e-805c-49b9-863f-a3c8e8e3e785",
+              "id": 48895
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Rule Group",
+              "targetStep": "/api/3/workflow_steps/5bf4aa8f-a2ca-4715-8dca-affd68942edc",
+              "sourceStep": "/api/3/workflow_steps/97792d3e-805c-49b9-863f-a3c8e8e3e785",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "df9643bd-ea7c-4275-abe0-b29d4bd9384d"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "4a034f0e-62ed-4223-b6db-86078efe7dc8",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15475,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639724398,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639726067,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Describe Firewall",
+          "aliasName": null,
+          "tag": null,
+          "description": "Returns the data objects for the specified firewall.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639726209,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d9d4e7be-5ea9-46d2-ba2d-7fd151bd26aa",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Describe Firewall",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "FirewallArn": "",
+                  "assume_role": false,
+                  "FirewallName": ""
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "describe_firewall",
+                "operationTitle": "Describe Firewall",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "137",
+              "left": "410",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "905823a2-3b32-4848-92cd-1d03f16a3932",
+              "id": 48898
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "b50fa8a1-016e-430b-9ade-f5c7367eabd7",
+                "title": "AWS Network Firewall: Describe Firewall",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "d9d4e7be-5ea9-46d2-ba2d-7fd151bd26aa",
+              "id": 48897
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Describe Firewall",
+              "targetStep": "/api/3/workflow_steps/905823a2-3b32-4848-92cd-1d03f16a3932",
+              "sourceStep": "/api/3/workflow_steps/d9d4e7be-5ea9-46d2-ba2d-7fd151bd26aa",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "b92c8595-dd18-478f-b024-b74882302efa"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "5207b8ea-76ad-49f3-953b-d359509bbe09",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15476,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639726143,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639726209,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Disassociate Subnets",
+          "aliasName": null,
+          "tag": null,
+          "description": "Removes the specified subnet associations from the firewall.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639728961,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d4911a73-b0d1-44f2-ac90-c9f7426507a4",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "22dee642-2437-4574-b53d-96ad53e30b70",
+                "title": "AWS Network Firewall: Disassociate Subnets",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "d4911a73-b0d1-44f2-ac90-c9f7426507a4",
+              "id": 48915
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Disassociate Subnets",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "SubnetIds": "1.1.1.1",
+                  "FirewallArn": "",
+                  "UpdateToken": "",
+                  "assume_role": false,
+                  "FirewallName": ""
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "disassociate_subnets",
+                "operationTitle": "Disassociate Subnets",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "164",
+              "left": "429",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "f10ac7cc-8a6f-4951-a47f-070f4228a27f",
+              "id": 48916
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Disassociate Subnets",
+              "targetStep": "/api/3/workflow_steps/f10ac7cc-8a6f-4951-a47f-070f4228a27f",
+              "sourceStep": "/api/3/workflow_steps/d4911a73-b0d1-44f2-ac90-c9f7426507a4",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "3f0780a9-1f3c-47b9-8e9b-3fb7fe9fdff1"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "5a3b314a-3191-4fc0-ae35-9baff6bcf004",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15485,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639728857,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639728961,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Firewall",
+          "aliasName": null,
+          "tag": null,
+          "description": "Deletes the specified Firewall and its FirewallStatus . This operation requires the firewall's DeleteProtection flag to be FALSE. You can't revert this operation.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639727784,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/70f4043b-0920-4cf7-a47b-4b3e716818f0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Firewall",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "FirewallArn": "",
+                  "assume_role": false,
+                  "FirewallName": ""
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "delete_firewall",
+                "operationTitle": "Delete Firewall",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "460",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "35880349-3d90-4204-b19d-80d4a925f104",
+              "id": 48908
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "fb47fa33-ce7f-4f24-b139-6f8e58a28586",
+                "title": "AWS Network Firewall: Delete Firewall",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "70f4043b-0920-4cf7-a47b-4b3e716818f0",
+              "id": 48907
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Delete Firewall",
+              "targetStep": "/api/3/workflow_steps/35880349-3d90-4204-b19d-80d4a925f104",
+              "sourceStep": "/api/3/workflow_steps/70f4043b-0920-4cf7-a47b-4b3e716818f0",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "72dc18a4-296b-403e-8a62-fcfff599cd3a"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "78c94234-eb7e-4d1e-bef8-7a3fbbc14d13",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15481,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639727689,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639727783,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List Tag For Resource",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the tags associated with the specified resource.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639722323,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/82b61eca-09eb-4ab1-bea5-ab841cacd93b",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "0a0b3f3a-2159-4e91-844a-edc9840cd81a",
+                "title": "AWS Network Firewall: Get List Tag For Resource",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "82b61eca-09eb-4ab1-bea5-ab841cacd93b",
+              "id": 48889
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List Tag For Resource",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "NextToken": "",
+                  "MaxResults": "",
+                  "ResourceArn": "arn:aws:iam::740371071977:resource/resource-arn",
+                  "assume_role": false
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "get_list_tag_for_resource",
+                "operationTitle": "Get List Tag For Resource",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "380",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "9f278e4f-7646-4948-a41b-fc96ed4b1107",
+              "id": 48890
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get List Tag For Resource",
+              "targetStep": "/api/3/workflow_steps/9f278e4f-7646-4948-a41b-fc96ed4b1107",
+              "sourceStep": "/api/3/workflow_steps/82b61eca-09eb-4ab1-bea5-ab841cacd93b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "5ce70c32-31f8-4a92-8daf-5467ea7a8d80"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "7a7f5a4d-995f-4402-b3e9-d1fd5f1aefb8",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15458,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639719679,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639722322,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Describe Rule Group",
+          "aliasName": null,
+          "tag": null,
+          "description": "Returns the data objects for the specified rule group.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639727639,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/455ebe31-d49e-47aa-a57f-b928144bbf08",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Describe Rule Group",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "Type": [
+                    "STATELESS",
+                    "STATEFUL"
+                  ],
+                  "assume_role": false,
+                  "RuleGroupArn": "",
+                  "RuleGroupName": ""
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "describe_rule_group",
+                "operationTitle": "Describe Rule Group",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "139",
+              "left": "411",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "1b6335cd-c16d-43df-af4e-b445d7a6c4f6",
+              "id": 48906
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "2b081736-a9e2-486b-8a1c-0778403ef733",
+                "title": "AWS Network Firewall: Describe Rule Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "455ebe31-d49e-47aa-a57f-b928144bbf08",
+              "id": 48905
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Describe Rule Group",
+              "targetStep": "/api/3/workflow_steps/1b6335cd-c16d-43df-af4e-b445d7a6c4f6",
+              "sourceStep": "/api/3/workflow_steps/455ebe31-d49e-47aa-a57f-b928144bbf08",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "5151cfbc-5c3d-45df-9afe-810edbd8bdbf"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "849d996a-a5b2-47a8-86ea-f6c1ae7dc12b",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15480,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639727559,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639727638,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Describe Logging Configuration",
+          "aliasName": null,
+          "tag": null,
+          "description": "Returns the logging configuration for the specified firewall.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639726865,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a2620d5b-db23-4be2-9268-5d90234d85e0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Describe Logging Configuration",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "FirewallArn": "",
+                  "assume_role": false,
+                  "FirewallName": ""
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "describe_logging_configuration",
+                "operationTitle": "Describe Logging Configuration",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "119",
+              "left": "472",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "9e2c66f1-392f-4dfa-a407-d0995bd339cd",
+              "id": 48902
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "7ab6e84d-5311-4b04-9354-8140b2b7899d",
+                "title": "AWS Network Firewall: Describe Logging Configuration",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "a2620d5b-db23-4be2-9268-5d90234d85e0",
+              "id": 48901
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Describe Logging Configuration",
+              "targetStep": "/api/3/workflow_steps/9e2c66f1-392f-4dfa-a407-d0995bd339cd",
+              "sourceStep": "/api/3/workflow_steps/a2620d5b-db23-4be2-9268-5d90234d85e0",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "0b81ffea-e4db-4ff4-9d14-d130579c73e8"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "9e669970-d615-4c16-81c0-8f7fb105ae59",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15478,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639726386,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639726864,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List Rule Groups",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the metadata for the rule groups that you have defined.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639719627,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/049356a1-56c1-423c-8f75-63558daf56ae",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "041fa079-5854-49fb-86dc-53c10f0146b2",
+                "title": "AWS Network Firewall: Get List Rule Groups",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "049356a1-56c1-423c-8f75-63558daf56ae",
+              "id": 48859
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List Rule Groups",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "Scope": "",
+                  "NextToken": "",
+                  "MaxResults": "",
+                  "assume_role": false
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "get_list_rule_groups",
+                "operationTitle": "Get List Rule Groups",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "171",
+              "left": "418",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "9d11adc1-3115-47dd-9f27-19ec3cf4cc2f",
+              "id": 48860
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get List Rule Groups",
+              "targetStep": "/api/3/workflow_steps/9d11adc1-3115-47dd-9f27-19ec3cf4cc2f",
+              "sourceStep": "/api/3/workflow_steps/049356a1-56c1-423c-8f75-63558daf56ae",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "324f4e82-01a4-4b9c-8d5e-3359d33deb2c"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b76434d9-c3e7-46e3-ba0d-82a6069c7fde",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15457,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639719484,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639719627,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Firewall",
+          "aliasName": null,
+          "tag": null,
+          "description": "Creates an AWS Network Firewall Firewall and accompanying FirewallStatus for a VPC.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639722549,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/5da59744-b118-42e7-b5f8-f8d81927b1b2",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Firewall",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "Tags": [
+                    {
+                      "Key": "string",
+                      "Value": "string"
+                    }
+                  ],
+                  "VpcId": "vpcid1",
+                  "Description": "Block IPS",
+                  "assume_role": false,
+                  "FirewallName": "Block IPs",
+                  "SubnetMappings": "1.1.1.1",
+                  "DeleteProtection": true,
+                  "FirewallPolicyArn": "arn:aws:iam::740371071977:policy/block-ip",
+                  "SubnetChangeProtection": true,
+                  "FirewallPolicyChangeProtection": true
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "create_firewall",
+                "operationTitle": "Create Firewall",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "119",
+              "left": "405",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "54bb19a8-cf63-4f18-bffb-272f40970597",
+              "id": 48892
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "7c7b9dd4-2b18-4070-ae52-c1b36e2059f4",
+                "title": "AWS Network Firewall: Create Firewall",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "5da59744-b118-42e7-b5f8-f8d81927b1b2",
+              "id": 48891
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Firewall",
+              "targetStep": "/api/3/workflow_steps/54bb19a8-cf63-4f18-bffb-272f40970597",
+              "sourceStep": "/api/3/workflow_steps/5da59744-b118-42e7-b5f8-f8d81927b1b2",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "8df50f57-6d75-4c86-b65d-1e6ab40558a7"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "bcbe0f57-20ac-4b3d-af06-e3a0c4ad21c4",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15473,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639722379,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639722549,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Resource Policy",
+          "aliasName": null,
+          "tag": null,
+          "description": "Deletes a resource policy that you created.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639728514,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a0b50413-375d-4ee0-b8da-1bcfefa69805",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Resource Policy",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "ResourceArn": "arn:aws:iam::740371071977:resourceARN",
+                  "assume_role": false
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "describe_resource_policy",
+                "operationTitle": "Describe Resource Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "131",
+              "left": "399",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "5f43942e-0c8a-42f8-9d39-8d79b785315a",
+              "id": 48912
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "1d113392-86bd-4f54-ab0b-d6701018632c",
+                "title": "AWS Network Firewall: Delete Resource Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "a0b50413-375d-4ee0-b8da-1bcfefa69805",
+              "id": 48911
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Delete Resource Policy",
+              "targetStep": "/api/3/workflow_steps/5f43942e-0c8a-42f8-9d39-8d79b785315a",
+              "sourceStep": "/api/3/workflow_steps/a0b50413-375d-4ee0-b8da-1bcfefa69805",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "662e0b58-610e-4649-89b6-311564433fee"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "cd6cf9b8-66a9-4b6f-8f0e-a5f8b20cc0a0",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15483,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639728423,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639728514,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Rule Group",
+          "aliasName": null,
+          "tag": null,
+          "description": "Deletes the specified Rule Group.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639728799,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/cbdd976d-f317-46e5-95ea-48c3be487179",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "f49ea0c0-af3a-44e1-aa95-fcf4d30c3e7f",
+                "title": "AWS Network Firewall: Delete Rule Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "cbdd976d-f317-46e5-95ea-48c3be487179",
+              "id": 48913
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Rule Group",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "Type": "",
+                  "assume_role": false,
+                  "RuleGroupArn": "",
+                  "RuleGroupName": ""
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "delete_rule_group",
+                "operationTitle": "Delete Rule Group",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "90",
+              "left": "421",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "ffeca333-b96e-4273-a186-ed719072234a",
+              "id": 48914
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Delete Rule Group",
+              "targetStep": "/api/3/workflow_steps/ffeca333-b96e-4273-a186-ed719072234a",
+              "sourceStep": "/api/3/workflow_steps/cbdd976d-f317-46e5-95ea-48c3be487179",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "b98e1ba0-efce-415b-9968-01d6415c41ac"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "e4ff6da1-1f99-4c52-9559-27551e765145",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15484,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639728703,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639728799,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Associate Firewall Policy",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get associates a FirewallPolicy to a Firewall. A firewall policy defines how to monitor and manage your VPC network traffic, using a collection of inspection rule groups and other settings.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639718289,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/47551e1f-9ba7-4ac3-99a5-a351c75232f6",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "4ac79a02-9fb8-49a4-bfd9-ab19b4b094e7",
+                "title": "AWS Network Firewall: Get Associate Firewall Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "47551e1f-9ba7-4ac3-99a5-a351c75232f6",
+              "id": 48851
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Associate Firewall Policy",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "FirewallArn": "arn:aws:iam::740371071977:role/aws-firewall",
+                  "UpdateToken": "",
+                  "assume_role": false,
+                  "FirewallName": "",
+                  "FirewallPolicyArn": "arn:aws:iam::740371071977:role/aws-firewall-policy"
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "get_associate_firewall_policy",
+                "operationTitle": "Get Associate Firewall Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "132",
+              "left": "425",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "bd1f1094-e401-4f5c-b78e-7793b0e3b417",
+              "id": 48852
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Associate Firewall Policy",
+              "targetStep": "/api/3/workflow_steps/bd1f1094-e401-4f5c-b78e-7793b0e3b417",
+              "sourceStep": "/api/3/workflow_steps/47551e1f-9ba7-4ac3-99a5-a351c75232f6",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "69b6e67a-f1bd-44b0-8272-06ab0f2cfd1c"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "e6955c43-14b7-4f8e-b090-eab4adfb549e",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15453,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639718077,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639718289,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Tag Resource",
+          "aliasName": null,
+          "tag": null,
+          "description": "Adds the specified tags to the specified resource.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1639729121,
+          "collection": "/api/3/workflow_collections/0df01677-5ff9-4755-ba2c-0a32c3800704",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/b8dd4d04-3dbf-437d-b21b-c8c012029ab4",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "85c743b7-a2f5-47d2-9487-db8f06b47f5e",
+                "title": "AWS Network Firewall: Tag Resource",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "b8dd4d04-3dbf-437d-b21b-c8c012029ab4",
+              "id": 48917
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Tag Resource",
+              "description": null,
+              "arguments": {
+                "name": "AWS Network Firewall",
+                "config": "02e45d0f-e0fc-4f7b-a712-a7470702353f",
+                "params": {
+                  "Tags": [
+                    {
+                      "Key": "key_name",
+                      "Value": "key_value"
+                    }
+                  ],
+                  "NextToken": "",
+                  "ResourceArn": "arn:aws:iam::740371071977:resourceARN",
+                  "assume_role": false
+                },
+                "version": "1.0.0",
+                "connector": "aws-network-firewall",
+                "operation": "tag_resource",
+                "operationTitle": "Tag Resource",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "143",
+              "left": "392",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "e2dfebae-6389-4237-ba19-e6248dde6255",
+              "id": 48918
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Tag Resource",
+              "targetStep": "/api/3/workflow_steps/e2dfebae-6389-4237-ba19-e6248dde6255",
+              "sourceStep": "/api/3/workflow_steps/b8dd4d04-3dbf-437d-b21b-c8c012029ab4",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "bbaccc4c-245b-48e4-b68d-aa53e5710745"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "e6f141e5-1e41-42c8-808e-e17ed0591065",
+          "recordTags": [
+            "AWS",
+            "aws-network-firewall"
+          ],
+          "id": 15486,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1639728993,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1639729121,
+          "owners": [],
+          "isPrivate": false
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "AWS",
+    "aws-network-firewall"
+  ]
+}
