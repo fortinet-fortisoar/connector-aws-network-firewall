@@ -129,7 +129,7 @@ def get_associate_firewall_policy(config, params):
 def get_associate_subnets(config, params):
     try:
         aws_nw = AWSNetworkFirewall(config)
-        subnet_ids = get_list_params(params.get('SubnetMappings'))
+        subnet_ids = get_list_params(params.pop('subnet_ids',''))
         params['SubnetMappings'] = [{'SubnetId': id} for id in subnet_ids]
         aws_client = aws_nw.get_aws_client(params)
         kwargs = remove_extra_param(params)
@@ -413,3 +413,4 @@ operations = {
     'get_list_tag_for_resource': get_list_tag_for_resource,
     'tag_resource': tag_resource
 }
+
