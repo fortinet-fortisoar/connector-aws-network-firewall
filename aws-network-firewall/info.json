@@ -7,7 +7,7 @@
   "cs_compatible": true,
   "version": "1.0.0",
   "category": "AWS Service",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/aws-network-firewall/211/aws-network-firewall-v1-0-0",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "configuration": {
@@ -73,6 +73,16 @@
           ]
         },
         "value": "Access Credentials"
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True."
       }
     ]
   },
@@ -82,7 +92,7 @@
       "title": "Get Associate Firewall Policy",
       "category": "investigation",
       "annotation": "get_associate_firewall_policy",
-      "description": "Get associates a FirewallPolicy to a Firewall. A firewall policy defines how to monitor and manage your VPC network traffic, using a collection of inspection rule groups and other settings. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.",
+      "description": "Retrieves the firewall policy associated with the firewall. A firewall policy defines how to monitor and manage your VPC network traffic, using a collection of inspection rule groups and other settings. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -92,7 +102,7 @@
           "editable": true,
           "visible": true,
           "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
           "value": false,
           "onchange": {
             "true": [
@@ -115,8 +125,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -145,8 +155,8 @@
           "title": "Firewall ARN",
           "name": "FirewallArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN or the name, and you can specify both.",
-          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
+          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
           "required": false,
           "editable": true,
           "visible": true
@@ -155,8 +165,8 @@
           "title": "Firewall Name",
           "name": "FirewallName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. You must specify the ARN or the name, and you can specify both.",
-          "description": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
+          "description": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
           "required": false,
           "editable": true,
           "visible": true
@@ -165,8 +175,8 @@
           "title": "Update Token",
           "type": "text",
           "name": "UpdateToken",
-          "tooltip": "An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
-          "description": "An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
+          "tooltip": "An optional token that you can use for optimistic locking. AWS Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
+          "description": "An optional token that you can use for optimistic locking. AWS Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
           "required": false,
           "editable": true,
           "visible": true
@@ -185,7 +195,7 @@
       "title": "Get Associate Subnets",
       "category": "investigation",
       "annotation": "get_associate_subnets",
-      "description": "Associates the specified subnets in the Amazon VPC to the firewall. You can specify one subnet for each of the Availability Zones that the VPC spans. This request creates an AWS Network Firewall firewall endpoint in each of the subnets. To enable the firewall's protections, you must also modify the VPC's route tables for each subnet's Availability Zone, to redirect the traffic that's coming into and going out of the zone through the firewall endpoint.",
+      "description": "Retrieves the specified subnets in the Amazon VPC that are associated with the firewall. You can specify one subnet for each of the Availability Zones that the VPC spans. This request creates an AWS Network Firewall firewall endpoint in each of the subnets. To enable the firewall's protections, you must also modify the VPC's route tables for each subnet's Availability Zone, which redirects the traffic that is coming into and going out of the zone through the firewall endpoint.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -195,7 +205,7 @@
           "editable": true,
           "visible": true,
           "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
           "value": false,
           "onchange": {
             "true": [
@@ -218,8 +228,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -238,8 +248,8 @@
           "title": "Subnet IDs",
           "name": "subnet_ids",
           "type": "text",
-          "tooltip": "The CSV list of IDs of the subnets that you want to associate with the firewall.",
-          "description": "The CSV list of IDs of the subnets that you want to associate with the firewall.",
+          "tooltip": "The CSV list of IDs of the subnets that are associated with the firewall.",
+          "description": "The CSV list of IDs of the subnets that are associated with the firewall.",
           "required": true,
           "editable": true,
           "visible": true
@@ -248,8 +258,8 @@
           "title": "Firewall ARN",
           "name": "FirewallArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN or the name, and you can specify both.",
-          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
+          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
           "required": false,
           "editable": true,
           "visible": true
@@ -258,8 +268,8 @@
           "title": "Firewall Name",
           "name": "FirewallName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. You must specify the ARN or the name, and you can specify both.",
-          "description": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
+          "description": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
           "required": false,
           "editable": true,
           "visible": true
@@ -268,8 +278,8 @@
           "title": "Update Token",
           "name": "UpdateToken",
           "type": "text",
-          "tooltip": "An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
-          "description": "An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
+          "tooltip": "An optional token that you can use for optimistic locking. AWS Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
+          "description": "An optional token that you can use for optimistic locking. AWS Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
           "required": false,
           "editable": true,
           "visible": true
@@ -292,7 +302,7 @@
       "title": "Get List Firewall Policies",
       "category": "investigation",
       "annotation": "get_list_firewall_policies",
-      "description": "Retrieves the metadata for the firewall policies that you have defined.",
+      "description": "Retrieves the metadata for the firewall policies that you have defined from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -301,8 +311,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -314,8 +324,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -345,8 +355,8 @@
           "title": "Limit",
           "name": "MaxResults",
           "type": "integer",
-          "tooltip": "The maximum number of objects that you want Network Firewall to return for this request.",
-          "description": "The maximum number of objects that you want Network Firewall to return for this request.",
+          "tooltip": "The maximum number of objects that you want this operation to retrieve from want AWS Network Firewall.",
+          "description": "The maximum number of objects that you want this operation to retrieve from want AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -355,8 +365,8 @@
           "title": "Next Token",
           "name": "NextToken",
           "type": "text",
-          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
-          "description": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "description": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
           "required": false,
           "editable": true,
           "visible": true
@@ -378,7 +388,7 @@
       "title": "Get List Firewalls",
       "category": "investigation",
       "annotation": "get_list_firewalls",
-      "description": "Retrieves the metadata for the firewalls that you have defined. If you provide VPC identifiers in your request, this returns only the firewalls for those VPCs.",
+      "description": "Retrieves the metadata for the firewalls that you have defined from AWS Network Firewall. Note: If you provide VPC identifiers in your request, then only the firewalls for those specified VPCs will be retrieved from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -387,8 +397,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -400,8 +410,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -431,8 +441,8 @@
           "title": "Limit",
           "name": "MaxResults",
           "type": "integer",
-          "tooltip": "The maximum number of objects that you want Network Firewall to return for this request.",
-          "description": "The maximum number of objects that you want Network Firewall to return for this request.",
+          "tooltip": "The maximum number of objects that you want this operation to retrieve from want AWS Network Firewall.",
+          "description": "(Optional) The maximum number of objects that you want this operation to retrieve from want AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -441,8 +451,8 @@
           "title": "Next Token",
           "name": "NextToken",
           "type": "text",
-          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
-          "description": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "description": "(Optional) When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
           "required": false,
           "editable": true,
           "visible": true
@@ -451,8 +461,8 @@
           "title": "VPC IDs",
           "name": "VpcIds",
           "type": "text",
-          "tooltip": "Retrieves the metadata for the firewalls that you have defined. If you provide VPC identifiers in your request, this returns only the firewalls for those VPCs.",
-          "description": "Retrieves the metadata for the firewalls that you have defined. If you provide VPC identifiers in your request, this returns only the firewalls for those VPCs.",
+          "tooltip": "Specify VPC identifiers in your request if you want to retrieve only the firewalls associated with these specified VPCs from AWS Network Firewall.",
+          "description": "(Optional) Specify VPC identifiers in your request if you want to retrieve only the firewalls associated with these specified VPCs from AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -474,7 +484,7 @@
       "title": "Get List Rule Groups",
       "category": "investigation",
       "annotation": "get_list_rule_groups",
-      "description": "Retrieves the metadata for the rule groups that you have defined.",
+      "description": "Retrieves the metadata for the rule groups that you have defined from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -483,8 +493,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -496,8 +506,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -527,8 +537,8 @@
           "title": "Limit",
           "name": "MaxResults",
           "type": "integer",
-          "tooltip": "The maximum number of objects that you want Network Firewall to return for this request.",
-          "description": "The maximum number of objects that you want Network Firewall to return for this request.",
+          "tooltip": "The maximum number of objects that you want this operation to retrieve from want AWS Network Firewall. ",
+          "description": "(Optional) The maximum number of objects that you want this operation to retrieve from want AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -537,8 +547,8 @@
           "title": "Next Token",
           "name": "NextToken",
           "type": "text",
-          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
-          "description": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "description": "(Optional) When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
           "required": false,
           "editable": true,
           "visible": true
@@ -547,8 +557,8 @@
           "title": "Scope",
           "name": "Scope",
           "type": "select",
-          "tooltip": "The scope of the request. The default setting of ACCOUNT or a setting of NULL returns all of the rule groups in your account. A setting of MANAGED returns all available managed rule groups.",
-          "description": "The scope of the request. The default setting of ACCOUNT or a setting of NULL returns all of the rule groups in your account. A setting of MANAGED returns all available managed rule groups.",
+          "tooltip": "Select the scope of the request. The default setting of ACCOUNT or a setting of NULL returns all of the rule groups in your account. A setting of MANAGED returns all available managed rule groups.",
+          "description": "Select the scope of the request. The default setting of ACCOUNT or a setting of NULL returns all of the rule groups in your account. A setting of MANAGED returns all available managed rule groups.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -574,7 +584,7 @@
       "title": "Get List Tag For Resource",
       "category": "investigation",
       "annotation": "get_list_tag_for_resource",
-      "description": "Retrieves the tags associated with the specified resource.",
+      "description": "Retrieves the tags associated with the specified resource from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -583,8 +593,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. \nIf you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -596,8 +606,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -627,8 +637,8 @@
           "title": "Resource ARN",
           "name": "ResourceArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the resource.",
-          "description": "The Amazon Resource Name (ARN) of the resource.",
+          "tooltip": "Name of the session that will be created to execute this action on AWS.",
+          "description": "Name of the session that will be created to execute this action on AWS.",
           "required": true,
           "editable": true,
           "visible": true
@@ -638,7 +648,7 @@
           "name": "MaxResults",
           "type": "integer",
           "tooltip": "The maximum number of objects that you want Network Firewall to return for this request.",
-          "description": "The maximum number of objects that you want Network Firewall to return for this request.",
+          "description": "(Optional) The maximum number of objects that you want this operation to retrieve from want AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -647,8 +657,8 @@
           "title": "Next Token",
           "name": "NextToken",
           "type": "text",
-          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
-          "description": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "description": "(Optional) When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
           "required": false,
           "editable": true,
           "visible": true
@@ -670,7 +680,7 @@
       "title": "Create Firewall",
       "category": "investigation",
       "annotation": "create_firewall",
-      "description": "Creates an AWS Network Firewall Firewall and accompanying Firewall Status for a VPC. The firewall defines the configuration settings for an AWS Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource.",
+      "description": "Creates a Firewall and accompanying Firewall Status for a VPC on AWS Network Firewall. The firewall defines the configuration settings for the firewall created on AWS Network Firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -679,8 +689,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -703,8 +713,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -723,7 +733,7 @@
           "title": "Firewall Name",
           "name": "FirewallName",
           "type": "text",
-          "description": "The descriptive name of the firewall. You can't change the name of a firewall after you create it.",
+          "description": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation.",
           "required": true,
           "editable": true,
           "visible": true
@@ -732,7 +742,7 @@
           "title": "Firewall Policy ARN",
           "name": "FirewallPolicyArn",
           "type": "text",
-          "description": "The Amazon Resource Name (ARN) of the FirewallPolicy that you want to use for the firewall.",
+          "description": "The Amazon Resource Name (ARN) of the firewall policy you want to use for the firewall that you are creating on AWS Network Firewall.",
           "required": true,
           "editable": true,
           "visible": true
@@ -741,7 +751,7 @@
           "title": "Description",
           "name": "Description",
           "type": "text",
-          "description": "A description of the firewall.",
+          "description": "(Optional) A description of the firewall that you are creating on AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -750,8 +760,8 @@
           "title": "Delete Protection",
           "name": "DeleteProtection",
           "type": "checkbox",
-          "tooltip": "A flag indicating whether it is possible to delete the firewall. A setting of TRUE indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to TRUE.",
-          "description": "A flag indicating whether it is possible to delete the firewall. A setting of TRUE indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to TRUE.",
+          "tooltip": "A flag indicating whether it is possible to delete the firewall. A setting of TRUE (checked) indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to TRUE.",
+          "description": "A flag indicating whether it is possible to delete the firewall. A setting of TRUE (checked) indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to TRUE.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -761,8 +771,8 @@
           "title": "Firewall Policy Change Protection",
           "name": "FirewallPolicyChangeProtection",
           "type": "checkbox",
-          "description": "A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE.",
-          "tooltip": "A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE.",
+          "description": "A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE (checked).",
+          "tooltip": "A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE (checked).",
           "required": false,
           "editable": true,
           "visible": true,
@@ -772,8 +782,8 @@
           "title": "Subnet Change Protection",
           "name": "SubnetChangeProtection",
           "type": "checkbox",
-          "description": "A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE.",
-          "tooltip": "A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE.",
+          "description": "A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE (checked).",
+          "tooltip": "A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE (checked).",
           "required": false,
           "editable": true,
           "visible": true,
@@ -783,8 +793,8 @@
           "title": "SubnetIDs",
           "name": "SubnetMappings",
           "type": "text",
-          "tooltip": "The IDs of the subnets that you want to associate with the firewall. The public subnets to use for your Network Firewall firewalls. Each subnet must belong to a different Availability Zone in the VPC. Network Firewall creates a firewall endpoint in each subnet.",
-          "description": "The IDs of the subnets that you want to associate with the firewall. The public subnets to use for your Network Firewall firewalls. Each subnet must belong to a different Availability Zone in the VPC. Network Firewall creates a firewall endpoint in each subnet.",
+          "tooltip": "The IDs of the subnets that you want to associate with the firewall that you are creating on the AWS Network Firewall. These will be the public subnets that will be used for your firewall on AWS Network Firewall. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.",
+          "description": "The IDs of the subnets that you want to associate with the firewall that you are creating on the AWS Network Firewall. These will be the public subnets that will be used for your firewall on AWS Network Firewall. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.",
           "required": true,
           "editable": true,
           "visible": true
@@ -793,8 +803,8 @@
           "title": "VPC ID",
           "name": "VpcId",
           "type": "text",
-          "description": "The unique identifier of the VPC where Network Firewall should create the firewall.",
-          "tooltip": "The unique identifier of the VPC where Network Firewall should create the firewall.",
+          "description": "The unique identifier of the VPC where AWS Network Firewall should create the firewall.",
+          "tooltip": "The unique identifier of the VPC where AWS Network Firewall should create the firewall.",
           "required": true,
           "editable": true,
           "visible": true
@@ -803,8 +813,8 @@
           "title": "Tags",
           "name": "Tags",
           "type": "json",
-          "description": "CSV list of the tags (key:value pairs) to associate with the resource. Notes Array Members: Minimum number of 1 item. Maximum number of 200 items.",
-          "tooltip": "CSV list of the tags (key:value pairs) to associate with the resource. Notes Array Members: Minimum number of 1 item. Maximum number of 200 items.",
+          "description": "(Optional) The CSV list of the tags (key:value pairs) to associate with the resource. Note: The minimum number of items that are supported in an array is 1 and the maximum number of items that are supported in an array is 200.",
+          "tooltip": "The CSV list of the tags (key:value pairs) to associate with the resource. Note: The minimum number of items that are supported in an array is 1 and the maximum number of items that are supported in an array is 200.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -866,7 +876,7 @@
       "title": "Create Firewall Policy",
       "category": "miscellaneous",
       "annotation": "create_firewall_policy",
-      "description": "Creates the firewall policy for the firewall according to the specifications. An AWS Network Firewall firewall policy defines the behavior of a firewall, in a collection of stateless and stateful rule groups and other settings. You can use one firewall policy for multiple firewalls.",
+      "description": "Creates the firewall policy, according to the specifications, for a firewall. A firewall policy on AWS Network Firewall defines the behavior of a firewall, in a collection of stateless and stateful rule groups and other settings. You can use one firewall policy for multiple firewalls.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -875,8 +885,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -899,8 +909,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -919,7 +929,7 @@
           "title": "Firewall Policy Name",
           "type": "text",
           "name": "FirewallPolicyName",
-          "description": "The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.",
+          "description": "The descriptive name of the firewall policy. You cannot change the name of a firewall policy after its creation.",
           "required": true,
           "editable": true,
           "visible": true
@@ -928,8 +938,8 @@
           "title": "Firewall Policy",
           "name": "firewall_policy_json",
           "type": "json",
-          "tooltip": "JSON string of the rule groups and policy actions to use in the firewall policy.",
-          "description": "JSON string of the rule groups and policy actions to use in the firewall policy.",
+          "tooltip": "A JSON string of the rule groups and policy actions to use in the firewall policy.",
+          "description": "A JSON string of the rule groups and policy actions to use in the firewall policy.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -978,7 +988,7 @@
           "title": "Description",
           "name": "Description",
           "type": "text",
-          "description": "A description of the firewall policy.",
+          "description": "(Optional) A description of the firewall policy that you are creating on AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -987,8 +997,8 @@
           "title": "Tags",
           "name": "Tags",
           "type": "json",
-          "description": "CSV list of the tags (key:value pairs) to associate with the resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 tags to each AWS resource.",
-          "tooltip": "CSV list of the tags (key:value pairs) to associate with the resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 tags to each AWS resource.",
+          "description": "(Optional) The CSV list of the tags (key:value pairs) to associate with the resource. You can define any key:value pair. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add a maximum of 50 tags to each AWS resource.",
+          "tooltip": "The CSV list of the tags (key:value pairs) to associate with the resource. You can define any key:value pair. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add a maximum of 50 tags to each AWS resource. ",
           "required": false,
           "editable": true,
           "visible": true,
@@ -1023,7 +1033,7 @@
       "title": "Create Rule Group",
       "category": "miscellaneous",
       "annotation": "create_rule_group",
-      "description": "Creates the specified stateless or stateful rule group, which includes the rules for network traffic inspection, a capacity setting, and tags.",
+      "description": "Creates a specific rule group that can be stateless or stateful and which includes the rules for network traffic inspection, capacity settings, and tags.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1032,8 +1042,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1056,8 +1066,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -1076,8 +1086,8 @@
           "title": "Rule Group Name",
           "name": "rule_group_name",
           "type": "text",
-          "tooltip": "Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. Possible values are: STATELESS, STATEFUL",
-          "description": "Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. Possible values are: STATELESS, STATEFUL",
+          "tooltip": "Specify the name of the rule group that you want to create in AWS Network Firewall.",
+          "description": "Specify the name of the rule group that you want to create in AWS Network Firewall.",
           "required": true,
           "editable": true,
           "visible": true
@@ -1087,7 +1097,7 @@
           "type": "select",
           "name": "setting_type",
           "tooltip": "Provide either Rule Group Setting or a Rules Setting. If you choose \"Rule Group Setting\", then you must specify the JSON object that defines the rule group rules. If you choose \"Rules Setting\", then you need to provide a string containing stateful rule group rules specifications in Suricata flat format, with one rule per line. Use this to import your existing Suricata compatible rule groups.",
-          "description": "Enable to assume a role",
+          "description": "Provide either Rule Group Setting or a Rules Setting. If you choose \"Rule Group Setting\", then you must specify the JSON object that defines the rule group rules. If you choose \"Rules Setting\", then you need to provide a string containing stateful rule group rules specifications in Suricata flat format, with one rule per line. Use this to import your existing Suricata compatible rule groups.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -1101,8 +1111,8 @@
                 "title": "Rule Group",
                 "name": "rule_group",
                 "type": "json",
-                "tooltip": "Provide an JSON object that defines the rule group rules.",
-                "description": "Provide an JSON object that defines the rule group rules.",
+                "tooltip": "If you choose 'Rule Group Setting', then in the Rule Group field, specify a JSON object that defines the rules of the rule group rules.",
+                "description": "If you choose 'Rule Group Setting', then in the Rule Group field, specify a JSON object that defines the rules of the rule group rules.",
                 "required": true,
                 "editable": true,
                 "visible": true
@@ -1113,8 +1123,8 @@
                 "title": "Rules",
                 "name": "rules",
                 "type": "text",
-                "tooltip": "A string containing stateful rule group rules specifications in Suricata flat format, with one rule per line. Use this to import your existing Suricata compatible rule groups.",
-                "description": "A string containing stateful rule group rules specifications in Suricata flat format, with one rule per line. Use this to import your existing Suricata compatible rule groups.",
+                "tooltip": "If you choose 'Rule Setting', then in the Rules field, specify a string that contains stateful rule group rules specifications in a Suricata flat format, with one rule per line. Use this to import your existing Suricata compatible rule groups.",
+                "description": "If you choose 'Rule Setting', then in the Rules field, specify a string that contains stateful rule group rules specifications in a Suricata flat format, with one rule per line. Use this to import your existing Suricata compatible rule groups.",
                 "required": true,
                 "editable": true,
                 "visible": true
@@ -1126,8 +1136,8 @@
         {
           "title": "Type",
           "name": "type",
-          "tooltip": "Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. Possible values are: STATELESS, STATEFUL",
-          "description": "Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. Possible values are: STATELESS, STATEFUL",
+          "tooltip": "Select the type of rule group; you can choose between STATELESS OR STATEFUL. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.",
+          "description": "Select the type of rule group; you can choose between STATELESS OR STATEFUL. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.",
           "type": "select",
           "required": true,
           "editable": true,
@@ -1141,8 +1151,8 @@
           "title": "Capacity",
           "name": "capacity",
           "type": "integer",
-          "tooltip": "The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.",
-          "description": "The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.",
+          "tooltip": "The maximum operating resources that can be used by this rule group. The capacity of the rule group is fixed at its creation. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, AWS Network Firewall reserves this capacity for the rule group.",
+          "description": "The maximum operating resources that can be used by this rule group. The capacity of the rule group is fixed at its creation. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, AWS Network Firewall reserves this capacity for the rule group.",
           "required": true,
           "editable": true,
           "visible": true
@@ -1151,8 +1161,8 @@
           "title": "Description",
           "name": "description",
           "type": "text",
-          "tooltip": "A description of the rule group.",
-          "description": "A description of the rule group.",
+          "tooltip": "A description of the rule group that you are creating on AWS Network Firewall.",
+          "description": "(Optional) A description of the rule group that you are creating on AWS Network Firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1161,8 +1171,8 @@
           "title": "Tags",
           "name": "tags",
           "type": "json",
-          "tooltip": "Array of Tag objects, The key:value pairs to associate with the resource. Note Array Members: Minimum number of 1 item. Maximum number of 200 items.",
-          "description": "Array of Tag objects, The key:value pairs to associate with the resource. Note Array Members: Minimum number of 1 item. Maximum number of 200 items.",
+          "tooltip": "An array of tag objects to associate with the resource. Note: The minimum number of items that are supported in an array is 1 and the maximum number of items that are supported in an array is 200.",
+          "description": "An array of tag objects to associate with the resource. Note: The minimum number of items that are supported in an array is 1 and the maximum number of items that are supported in an array is 200.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1193,7 +1203,7 @@
       "title": "Describe Firewall",
       "category": "investigation",
       "annotation": "describe_firewall",
-      "description": "Returns the data objects for the specified firewall.",
+      "description": "Returns the data objects for the specified firewall from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1202,8 +1212,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1226,8 +1236,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -1246,8 +1256,8 @@
           "title": "Firewall ARN",
           "name": "FirewallArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 256.",
-          "description": "The Amazon Resource Name (ARN) of the firewall. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 256.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
+          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1256,8 +1266,8 @@
           "title": "Firewall Name",
           "name": "FirewallName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. Note You must specify the ARN or the name, and you can specify both.",
-          "description": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. Note You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall.",
+          "description": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1314,7 +1324,7 @@
       "title": "Describe Firewall Policy",
       "category": "investigation",
       "annotation": "describe_firewall_policy",
-      "description": "Returns the data objects for the specified firewall policy.",
+      "description": "Returns the data objects for the specified firewall policy from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1323,8 +1333,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1347,8 +1357,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -1367,8 +1377,8 @@
           "title": "Firewall Policy ARN",
           "name": "FirewallPolicyArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall policy. You must specify the ARN or the policy name, and you can specify both.",
-          "description": "The Amazon Resource Name (ARN) of the firewall policy. You must specify the ARN or the policy name, and you can specify both.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall policy. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy.",
+          "description": "The Amazon Resource Name (ARN) of the firewall policy. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1377,8 +1387,8 @@
           "title": "Firewall Policy Name",
           "name": "FirewallPolicyName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it. You must specify the Firewall ARN or the policy name, and you can specify both.",
-          "description": "The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it. You must specify the Firewall ARN or the policy name, and you can specify both.",
+          "tooltip": "The descriptive name of the firewall policy. You cannot change the name of a firewall policy after its creation. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy.",
+          "description": "The descriptive name of the firewall policy. You cannot change the name of a firewall policy after its creation. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1435,7 +1445,7 @@
       "title": "Describe Logging Configuration",
       "category": "investigation",
       "annotation": "describe_logging_configuration",
-      "description": "Returns the logging configuration for the specified firewall.",
+      "description": "Returns the logging configuration for the specified firewall from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1444,8 +1454,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1468,8 +1478,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -1488,8 +1498,8 @@
           "title": "Firewall ARN",
           "name": "FirewallArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 256.",
-          "description": "The Amazon Resource Name (ARN) of the firewall. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 256.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
+          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1498,8 +1508,8 @@
           "title": "Firewall Name",
           "name": "FirewallName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 128.",
-          "description": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 128.",
+          "tooltip": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 128.",
+          "description": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 128.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1526,7 +1536,7 @@
       "title": "Describe Resource Policy",
       "category": "investigation",
       "annotation": "describe_resource_policy",
-      "description": "Retrieves a resource policy that you created.",
+      "description": "Retrieves a resource policy that you created from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1535,8 +1545,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1548,8 +1558,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -1579,8 +1589,8 @@
           "title": "Resource ARN",
           "name": "ResourceArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve.",
-          "description": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve.",
+          "tooltip": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve from AWS Network Firewall.",
+          "description": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve from AWS Network Firewall.",
           "required": true,
           "editable": true,
           "visible": true
@@ -1594,7 +1604,7 @@
     {
       "operation": "describe_rule_group",
       "title": "Describe Rule Group",
-      "description": "Returns the data objects for the specified rule group.",
+      "description": "Returns the data objects for the specified rule group from AWS Network Firewall.",
       "annotation": "describe_rule_group",
       "category": "investigation",
       "output_schema": {
@@ -1619,8 +1629,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1632,8 +1642,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -1663,8 +1673,8 @@
           "title": "Rule Group Name",
           "name": "RuleGroupName",
           "type": "text",
-          "tooltip": "The descriptive name of the rule group. You can't change the name of a rule group after you create it.",
-          "description": "The descriptive name of the rule group. You can't change the name of a rule group after you create it.",
+          "tooltip": "The descriptive name of the rule group. You cannot change the name of the rule group after its creation. This setting is required for requests that do not include the Rule Group ARN.",
+          "description": "The descriptive name of the rule group. You cannot change the name of the rule group after its creation. This setting is required for requests that do not include the Rule Group ARN.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1673,8 +1683,8 @@
           "title": "Rule Group ARN",
           "name": "RuleGroupArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the rule group.",
-          "description": "The Amazon Resource Name (ARN) of the rule group.",
+          "tooltip": "The Amazon Resource Name (ARN) of the rule group. You must specify the name or ARN of the rule group, or you can specify both the ARN and the name of the rule group.",
+          "description": "The Amazon Resource Name (ARN) of the rule group. You must specify the name or ARN of the rule group, or you can specify both the ARN and the name of the rule group.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1683,8 +1693,8 @@
           "title": "Type",
           "name": "Type",
           "type": "select",
-          "tooltip": "The descriptive name of the rule group. You can't change the name of a rule group after you create it. This setting is required for requests that do not include the Rule Group ARN.",
-          "description": "The descriptive name of the rule group. You can't change the name of a rule group after you create it. This setting is required for requests that do not include the Rule Group ARN.",
+          "tooltip": "Select the type of rule group; you can choose between STATELESS OR STATEFUL. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.",
+          "description": "Select the type of rule group; you can choose between STATELESS OR STATEFUL. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -1701,7 +1711,7 @@
       "title": "Delete Firewall",
       "category": "miscellaneous",
       "annotation": "delete_firewall",
-      "description": "Deletes the specified Firewall and its FirewallStatus . This operation requires the firewall's DeleteProtection flag to be FALSE. You can't revert this operation. You can check whether a firewall is in use by reviewing the route tables for the Availability Zones where you have firewall subnet mappings. Retrieve the subnet mappings by calling DescribeFirewall.",
+      "description": "Deletes the specified Firewall and its FirewallStatus from AWS Network Firewall. This operation requires that the firewall's DeleteProtection flag is set to FALSE and you cannot revert this operation. Note: You can check whether a firewall is in use by reviewing the route tables for the Availability Zones where you have firewall subnet mappings. You can retrieve the subnet mappings by using the 'Describe Firewall' operation.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1710,8 +1720,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters: ",
           "value": false,
           "onchange": {
             "true": [
@@ -1734,8 +1744,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -1754,8 +1764,8 @@
           "title": "Amazon Resource Name (ARN)",
           "name": "FirewallArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall. Note You must specify the ARN or the name, and you can specify both.",
-          "description": "The Amazon Resource Name (ARN) of the firewall. Note You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall.",
+          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1764,8 +1774,8 @@
           "title": "Firewall Name",
           "name": "FirewallName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. Note You must specify the ARN or the name, and you can specify both.",
-          "description": "The descriptive name of the firewall. You can't change the name of a firewall after you create it. Note You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall.",
+          "description": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the ARN and the name of the firewall.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1810,7 +1820,7 @@
       "title": "Delete Firewall Policy",
       "category": "miscellaneous",
       "annotation": "delete_firewall_policy",
-      "description": "Deletes the specified firewall policy.",
+      "description": "Deletes the specified firewall policy from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1819,8 +1829,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1843,8 +1853,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -1863,8 +1873,8 @@
           "title": "Firewall Policy ARN",
           "name": "FirewallPolicyArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall policy. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 256.",
-          "description": "The Amazon Resource Name (ARN) of the firewall policy. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 256.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall policy. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
+          "description": "The Amazon Resource Name (ARN) of the firewall policy. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1873,8 +1883,8 @@
           "title": "Firewall Policy Name",
           "name": "FirewallPolicyName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it. Note You must specify the ARN or the name, and you can specify both.",
-          "description": "The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it. Note You must specify the ARN or the name, and you can specify both.",
+          "tooltip": "The descriptive name of the firewall policy. You cannot change the name of a firewall policy after its creation. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy.",
+          "description": "The descriptive name of the firewall policy. You cannot change the name of a firewall policy after its creation. You must specify the ARN of the firewall policy or the name of the firewall policy, or you can specify both the ARN and the name of the firewall policy.",
           "required": false,
           "editable": true,
           "visible": true
@@ -1905,7 +1915,7 @@
       "title": "Delete Resource Policy",
       "category": "miscellaneous",
       "annotation": "delete_resource_policy",
-      "description": "Deletes a resource policy that you created.",
+      "description": "Deletes a resource policy that you created from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1914,8 +1924,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -1938,8 +1948,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -1958,8 +1968,8 @@
           "title": "Resource ARN",
           "name": "ResourceArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete. Note Length Constraints: Minimum length of 1. Maximum length of 256.",
-          "description": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete. Note Length Constraints: Minimum length of 1. Maximum length of 256.",
+          "tooltip": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete from AWS Network Firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256",
+          "description": "The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete from AWS Network Firewall. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256",
           "required": true,
           "editable": true,
           "visible": true
@@ -1976,7 +1986,7 @@
       "title": "Delete Rule Group",
       "category": "miscellaneous",
       "annotation": "delete_rule_group",
-      "description": "Deletes the specified Rule Group.",
+      "description": "Deletes the specified Rule Group from AWS Network Firewall.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -1985,8 +1995,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "Enable to assume a role",
-          "description": "Select this option to assume a role.Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.If you select this option, i.e., set it to 'True' then you must specify the following parameters: AWS Region: AWS region of your account to access the AWS AWS Route 53. Role ARN: ARN of the role that you want to assume to execute this action on AWS.Session Name: Name of the session that will be created to execute this action on AWS.",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -2009,8 +2019,8 @@
                 "editable": true,
                 "visible": true,
                 "placeholder": "arn:aws:iam::{{account_id}}:role/{{role_name}}",
-                "tooltip": "ARN of the role that you want assume to execute this action on AWS.",
-                "description": "ARN of the role that you want assume to execute this action on AWS."
+                "tooltip": "ARN of the role that you want to assume to execute this action on AWS.",
+                "description": "ARN of the role that you want to assume to execute this action on AWS."
               },
               {
                 "title": "Session Name",
@@ -2029,8 +2039,8 @@
           "title": "Rule Group ARN",
           "name": "RuleGroupArn",
           "type": "text",
-          "tooltip": "The descriptive name of the rule group. Note You can't change the name of a rule group after you create it. Length Constraints: Minimum length of 1. Maximum length of 256.",
-          "description": "The descriptive name of the rule group. Note You can't change the name of a rule group after you create it. Length Constraints: Minimum length of 1. Maximum length of 256.",
+          "tooltip": "The Amazon Resource Name (ARN) of the rule group. You must specify the name or ARN of the rule group, or you can specify both the ARN and the name of the rule group. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
+          "description": "The Amazon Resource Name (ARN) of the rule group. You must specify the name or ARN of the rule group, or you can specify both the ARN and the name of the rule group. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 256.",
           "required": false,
           "editable": true,
           "visible": true
@@ -2039,8 +2049,8 @@
           "title": "Rule Group Name",
           "name": "RuleGroupName",
           "type": "text",
-          "tooltip": "The descriptive name of the rule group. You can't change the name of a rule group after you create it. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 128.",
-          "description": "The descriptive name of the rule group. You can't change the name of a rule group after you create it. Note You must specify the ARN or the name, and you can specify both. Length Constraints: Minimum length of 1. Maximum length of 128.",
+          "tooltip": "The descriptive name of the rule group. You cannot change the name of the rule group after its creation. This setting is required for requests that do not include the Rule Group ARN. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 128.",
+          "description": "The descriptive name of the rule group. You cannot change the name of the rule group after its creation. This setting is required for requests that do not include the Rule Group ARN. Note: Length Constraints: The minimum length is set as 1, and the maximum length is set as 128.",
           "required": false,
           "editable": true,
           "visible": true
@@ -2049,8 +2059,8 @@
           "title": "Type",
           "name": "Type",
           "type": "select",
-          "tooltip": "Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. This setting is required for requests that do not include the RuleGroupARN.",
-          "description": "Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. This setting is required for requests that do not include the RuleGroupARN.",
+          "tooltip": "Select the type of rule group; you can choose between STATELESS OR STATEFUL. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.",
+          "description": "Select the type of rule group; you can choose between STATELESS OR STATEFUL. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -2084,7 +2094,7 @@
       "title": "Disassociate Subnets",
       "category": "investigation",
       "annotation": "disassociate_subnets",
-      "description": "Removes the specified subnet associations from the firewall. This removes the firewall endpoints from the subnets and removes any network filtering protections that the endpoints were providing.",
+      "description": "Removes the specified subnet associations from the firewall on AWS Network Firewall. This removes the firewall endpoints from the subnets and removes any network filtering protections that were provided by the endpoints.",
       "parameters": [
         {
           "title": "Assume a Role",
@@ -2093,8 +2103,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -2106,8 +2116,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -2137,8 +2147,8 @@
           "title": "Subnet IDs",
           "name": "SubnetIds",
           "type": "text",
-          "tooltip": "Provide the CSV list of unique identifiers for the subnets that you want to disassociate.",
-          "description": "Provide the CSV list of unique identifiers for the subnets that you want to disassociate.",
+          "tooltip": "Specify a CSV list of unique identifiers of the subnets that you want to disassociate from the specified firewall on AWS Network Firewall.",
+          "description": "Specify a CSV list of unique identifiers of the subnets that you want to disassociate from the specified firewall on AWS Network Firewall.",
           "required": true,
           "editable": true,
           "visible": true
@@ -2147,8 +2157,8 @@
           "title": "Firewall ARN",
           "name": "FirewallArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the firewall.",
-          "description": "The Amazon Resource Name (ARN) of the firewall.",
+          "tooltip": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
+          "description": "The Amazon Resource Name (ARN) of the firewall. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
           "required": false,
           "editable": true,
           "visible": true
@@ -2157,8 +2167,8 @@
           "title": "Firewall Name",
           "name": "FirewallName",
           "type": "text",
-          "tooltip": "The descriptive name of the firewall. You can't change the name of a firewall after you create it.",
-          "description": "The descriptive name of the firewall. You can't change the name of a firewall after you create it.",
+          "tooltip": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
+          "description": "The descriptive name of the firewall. You cannot change the name of a firewall after its creation. You must specify the ARN of the firewall or the name of the firewall, or you can specify both the name and the ARN.",
           "required": false,
           "editable": true,
           "visible": true
@@ -2167,8 +2177,8 @@
           "title": "Update Token",
           "name": "UpdateToken",
           "type": "text",
-          "tooltip": "An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
-          "description": "An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
+          "tooltip": "An optional token that you can use for optimistic locking. AWS Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
+          "description": "An optional token that you can use for optimistic locking. AWS Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request.",
           "required": false,
           "editable": true,
           "visible": true
@@ -2200,8 +2210,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional.",
-          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the 'Configuration Type'. If you have specified Access Credentials as the 'Configuration Type', then this parameter is optional. If you select this option, i.e., set it to 'True' then you must specify the following parameters: ",
+          "tooltip": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional.",
+          "description": "Select this option to assume a role. Note: You must enable this option, i.e., this parameter is required, if you have specified IAM Role as the Configuration Type. If you have specified Access Credentials as the Configuration Type, then this parameter is optional. If you select this option, then you must specify the following parameters:",
           "value": false,
           "onchange": {
             "true": [
@@ -2213,8 +2223,8 @@
                 "type": "text",
                 "name": "aws_region",
                 "placeholder": "e.g. us-east-2",
-                "tooltip": "AWS region of your account to access AWS Lambda.",
-                "description": "AWS region of your account to access AWS Lambda and retrieve details of your account's limits and usage."
+                "tooltip": "Your account's AWS region that you will use to access AWS services.",
+                "description": "Your account's AWS region that you will use to access AWS services."
               },
               {
                 "title": "Role ARN",
@@ -2244,8 +2254,8 @@
           "title": "Resource ARN",
           "name": "ResourceArn",
           "type": "text",
-          "tooltip": "The Amazon Resource Name (ARN) of the resource.",
-          "description": "The Amazon Resource Name (ARN) of the resource.",
+          "tooltip": "The Amazon Resource Name (ARN) of the resource that you want to tag in AWS Network Firewall.",
+          "description": "The Amazon Resource Name (ARN) of the resource that you want to tag in AWS Network Firewall.",
           "required": true,
           "editable": true,
           "visible": true
@@ -2254,8 +2264,8 @@
           "title": "Tags",
           "name": "Tags",
           "type": "json",
-          "tooltip": "Array of Tag objects.",
-          "description": "Array of Tag objects.",
+          "tooltip": "An array of tag objects to associate with the resource.  Note: The minimum number of items that are supported in an array is 1 and the maximum number of items that are supported in an array is 200.",
+          "description": "An array of tag objects to associate with the resource.  Note: The minimum number of items that are supported in an array is 1 and the maximum number of items that are supported in an array is 200.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -2270,8 +2280,8 @@
           "title": "Next Token",
           "name": "NextToken",
           "type": "text",
-          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
-          "description": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "tooltip": "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
+          "description": "(Optional) When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, AWS Network Firewall returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.",
           "required": false,
           "editable": true,
           "visible": true
